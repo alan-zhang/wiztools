@@ -1,7 +1,8 @@
 <project name="sendxmppmsg" default="package">
 
-  <property name="jar.file" value="sendxmppmsg.jar"/>
-  <property name="test.jar.file" value="sendxmppmsg-test.jar"/>
+  <property name="version" value="1.0"/>
+  <property name="jar.name" value="sendxmppmsg"/>
+  <property name="test.jar.name" value="sendxmppmsg-test"/>
 
   <path id="class.path">
     <fileset dir="lib">
@@ -23,7 +24,7 @@
   </target>
 
   <target name="package" depends="compile">
-    <jar destfile="target/${jar.file}">
+    <jar destfile="target/${jar.name}-${version}.jar">
       <fileset dir="target/classes"/>
       <fileset dir="src/main/resources"/>
     </jar>
@@ -43,7 +44,7 @@
   </target>
 
   <target name="test-package" depends="test-compile">
-    <jar destfile="target/${test.jar.file}">
+    <jar destfile="target/${test.jar.name}-${version}.jar">
       <fileset dir="target/test-classes"/>
       <fileset dir="src/test/resources"/>
     </jar>
@@ -52,8 +53,8 @@
   <target name="test" depends="test-package">
     <junit printsummary="yes" haltonfailure="yes" showoutput="yes">
       <classpath>
-        <pathelement path="target/${test.jar.file}"/>
-        <pathelement path="target/${jar.file}"/>
+        <pathelement path="target/${test.jar.name}-${version}.jar"/>
+        <pathelement path="target/${jar.name}-${version}.jar"/>
         <fileset dir="lib">
           <include name="**/*.jar"/>
         </fileset>
