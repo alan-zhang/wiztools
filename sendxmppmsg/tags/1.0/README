@@ -1,0 +1,58 @@
+* SendXMPPMessage
+
+  This is a OSWorkflow plugin which can be used for sending
+  XMPP (eg. Jabber or OpenFire) messages.
+
+* Configuration
+
+  A typical OSWorkflow configuration that would be defined:
+
+  <function type="class">
+    <arg name="class.name">org.wiztools.osworkflow.util.SendXMPPMessage</arg>
+    <arg name="server">localhost.localdomain</arg>
+    <arg name="port">5222</arg>
+    <arg name="to">demo@localhost.localdomain</arg>
+    <arg name="message">Hello!</arg>
+    <arg name="username">admin</arg>
+    <arg name="password">admin</arg>
+  </function>
+
+* Source Code
+
+  http://wiztools.googlecode.com/
+
+* Build
+
+  Building this application requires Ant (http://ant.apache.org/).
+  The folder structure we have followed for this project is
+  based on Maven 2 (http://maven.apache.org/).
+
+  To build the application:
+
+  $ ant
+
+* Test
+
+  To execute UnitTest:
+
+  $ ant test
+
+  Before running test, make sure you are running an XMPP server
+  in localhost. It should also have two users:
+
+  1. admin (password `admin')
+  2. demo (password `demo')
+
+  Both these users should be buddies. If you don't have these
+  test users, you may edit `src/test/resources/test.xml' file
+  to configure the users of your system.
+
+  Have the `demo' user logged in so that message sent from
+  osworkflow is received by him.
+
+* License
+
+  This code is distributed under Apache 2.0 license:
+
+  http://www.apache.org/licenses/LICENSE-2.0
+

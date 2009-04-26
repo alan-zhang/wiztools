@@ -1,0 +1,3 @@
+<workflows>
+  <workflow name="test" type="resource" location="test.xml"/>
+</workflows>

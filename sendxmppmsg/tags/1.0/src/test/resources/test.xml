@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE workflow PUBLIC "-//OpenSymphony Group//DTD OSWorkflow 2.6//EN" "http://www.opensymphony.com/osworkflow/workflow_2_8.dtd">
+
+<workflow>
+  <initial-actions>
+    <action id="1" name="Send Message">
+      <results>
+        <unconditional-result old-status="Finished" status="Initialized" step="1"/>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="IM-step">
+      <actions>
+        <action id="2" name="Send IM">
+          <pre-functions>
+            <function type="class">
+              <arg name="class.name">org.wiztools.osworkflow.util.SendXMPPMessage</arg>
+              <arg name="server">localhost.localdomain</arg>
+              <arg name="port">5222</arg>
+              <arg name="to">demo@localhost.localdomain</arg>
+              <arg name="message">Hello!</arg>
+              <arg name="username">admin</arg>
+              <arg name="password">admin</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result old-status="Step Finished" status="IM Done" step="-1"/>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

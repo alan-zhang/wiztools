@@ -1,6 +1,6 @@
 <project name="sendxmppmsg" default="package">
 
-  <property name="version" value="1.1-SNAPSHOT"/>
+  <property name="version" value="1.0"/>
   <property name="jar.name" value="sendxmppmsg"/>
   <property name="test.jar.name" value="sendxmppmsg-test"/>
 
