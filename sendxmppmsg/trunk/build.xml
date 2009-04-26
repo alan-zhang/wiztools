@@ -1,0 +1,65 @@
+<project name="sendxmppmsg" default="package">
+
+  <property name="jar.file" value="sendxmppmsg.jar"/>
+  <property name="test.jar.file" value="sendxmppmsg-test.jar"/>
+
+  <path id="class.path">
+    <fileset dir="lib">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="init">
+    <mkdir dir="target/classes"/>
+    <mkdir dir="target/test-classes"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <javac srcdir="src/main/java"
+           destdir="target/classes"
+           source="1.5"
+           target="1.5"
+           classpathref="class.path"/>
+  </target>
+
+  <target name="package" depends="compile">
+    <jar destfile="target/${jar.file}">
+      <fileset dir="target/classes"/>
+      <fileset dir="src/main/resources"/>
+    </jar>
+  </target>
+
+  <target name="clean">
+    <delete dir="target"/>
+  </target>
+
+  <target name="test-compile" depends="package">
+    <javac srcdir="src/test/java"
+           destdir="target/test-classes"
+           source="1.6"
+           target="1.6"
+           classpathref="class.path">
+    </javac>
+  </target>
+
+  <target name="test-package" depends="test-compile">
+    <jar destfile="target/${test.jar.file}">
+      <fileset dir="target/test-classes"/>
+      <fileset dir="src/test/resources"/>
+    </jar>
+  </target>
+
+  <target name="test" depends="test-package">
+    <junit printsummary="yes" haltonfailure="yes" showoutput="yes">
+      <classpath>
+        <pathelement path="target/${test.jar.file}"/>
+        <pathelement path="target/${jar.file}"/>
+        <fileset dir="lib">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+      <formatter type="plain"/>
+      <test name="org.wiztools.osworkflow.util.SendXMPPMessageTest"/>
+    </junit>
+  </target>
+</project>
