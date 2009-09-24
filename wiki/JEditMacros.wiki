@@ -1,0 +1,14 @@
+#labels Featured,jedit
+The mini-projects also hosts various [JEdit http://jedit.org/] macros.
+
+= Introduction =
+
+The macros are not published in download location. They may be downloaded from svn trunk.
+
+
+= Details =
+
+|| *Macro* || *Description* ||
+|| [http://code.google.com/p/wiztools/source/browse/jedit-macros/trunk/encodeForXML.bsh Encode for XML]  || Transforms special XML characters like `<`, `>`, ", ' and & ||
+|| [http://code.google.com/p/wiztools/source/browse/jedit-macros/trunk/HTML5Template.bsh HTML5 Template] || Creates a new buffer with HTML5 standard template ||
+|| [http://code.google.com/p/wiztools/source/browse/jedit-macros/trunk/JavafyString.bsh Javafy String] || Assign selected text to a Java String variable ||
