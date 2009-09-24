@@ -1,5 +1,5 @@
 #labels Featured,jedit
-The mini-projects also hosts various [http://jedit.org/ JEdit] macros.
+The mini-project also hosts various [http://jedit.org/ JEdit] macros.
 
 = Introduction =
 
