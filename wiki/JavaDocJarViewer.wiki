@@ -13,17 +13,4 @@ To avoid these steps, we have the *`JavaDoc` Jar Viewer*. It does all the above.
 java -jar javadocjarviewer-NN.jar project-NN-javadoc.jar
 }}}
 
-This will try to open the `JavaDoc`'s _index.html_ in Firefox browser. If you want to open the application in another browser, say Opera, you would give:
-
-{{{
-java -Dweb.browser=opera -jar javadocjarviewer-NN.jar project-NN-javadoc.jar
-}}}
-
-== Windows Users==
-
-In Windows, the browser executables are not in the PATH. For this, use full path:
-
-{{{
-> java -Dweb.browser="C:\Program Files\Internet Explorer\iexplore" \
-  -jar project-NN-javadoc.jar
-}}}
+This will try to open the `JavaDoc`'s _index.html_ in your default browser.
