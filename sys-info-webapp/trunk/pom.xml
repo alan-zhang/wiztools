@@ -4,14 +4,14 @@
     <groupId>org.wiztools.util</groupId>
     <artifactId>sys-info-webapp</artifactId>
     <packaging>war</packaging>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
     <name>sys-info-webapp JEE5 Webapp</name>
     <url>http://wiztools.googlecode.com/</url>
 
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/sys-info-webapp/tags/sys-info-webapp-0.1.0</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/sys-info-webapp/tags/sys-info-webapp-0.1.0</developerConnection>
-        <url>scm:svn:https://wiztools.googlecode.com/svn/sys-info-webapp/tags/sys-info-webapp-0.1.0</url>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/sys-info-webapp/trunk/</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/sys-info-webapp/trunk/</developerConnection>
+        <url>http://code.google.com/p/wiztools/source/browse/</url>
     </scm>
 
     <dependencies>
