@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>WizTools.org SysInfo</title>
     </head>
     <body>
         <h3>System Properties</h3>
@@ -39,7 +39,16 @@
                 <td>Number of processors</td><td>${requestScope.processorNum}</td>
             </tr>
             <tr>
+                <td>Total memory</td><td>${requestScope.totalMemory}</td>
+            </tr>
+            <tr>
                 <td>Free memory</td><td>${requestScope.freeMemory}</td>
+            </tr>
+            <tr>
+                <td>Heap memory used</td><td>${requestScope.heapUsed}</td>
+            </tr>
+            <tr>
+                <td>Non-heap memory used</td><td>${requestScope.nonHeapUsed}</td>
             </tr>
             <tr>
                 <td>Max memory</td><td>${requestScope.maxMemory}</td>

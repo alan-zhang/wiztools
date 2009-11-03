@@ -1,6 +1,9 @@
 package org.wiztools.sysinfowebapp;
 
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.MemoryUsage;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.servlet.ServletException;
@@ -24,6 +27,14 @@ public class SysInfoServlet extends HttpServlet {
         // Display in MB:
         final long maxMemory = r.maxMemory() / (1000L*1024L);
         final long freeMemory = r.freeMemory() / (1000L*1024L);
+        final long totalMemory = r.totalMemory() / (1000L*1024L);
+
+        MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
+        MemoryUsage u = memBean.getHeapMemoryUsage();
+        final long heapUsed = u.getUsed() / (1000L*1024L);
+        u = memBean.getNonHeapMemoryUsage();
+        final long nonHeapUsed = u.getUsed() / (1000L*1024L);
+        
         final int processorNum = r.availableProcessors();
         
         // Set the values as request attributes:
@@ -32,10 +43,13 @@ public class SysInfoServlet extends HttpServlet {
 
         req.setAttribute("maxMemory", maxMemory);
         req.setAttribute("freeMemory", freeMemory);
+        req.setAttribute("totalMemory", totalMemory);
+        req.setAttribute("heapUsed", heapUsed);
+        req.setAttribute("nonHeapUsed", nonHeapUsed);
         req.setAttribute("processorNum", processorNum);
 
         // Forward to JSP:
-        req.getRequestDispatcher("/view.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/view.jsp").forward(req, resp);
     }
     
 }
