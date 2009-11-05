@@ -13,3 +13,4 @@ The macros are not published in download location. They may be downloaded from s
 || [http://code.google.com/p/wiztools/source/browse/jedit-macros/trunk/HTML5Template.bsh HTML5 Template] || Creates a new buffer with HTML5 standard template ||
 || [http://code.google.com/p/wiztools/source/browse/jedit-macros/trunk/JavafyString.bsh Javafy String] || Assign selected text to a Java String variable ||
 || [http://code.google.com/p/wiztools/source/browse/jedit-macros/trunk/MakeSingleLineCode.bsh Make Single Line Code] || Compacts C-derived language code into single-line. Can be used to compact CSS too. ||
+|| [http://code.google.com/p/wiztools/source/browse/jedit-macros/trunk/HTMLSplCharPunctuationConvert.bsh HTML special characters n intelligent punctuation char conversion] || Converts intelligently! ||
