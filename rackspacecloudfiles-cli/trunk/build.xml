@@ -1,0 +1,43 @@
+<project name="rackspacecloudfiles-cli" default="package">
+  <property name="src.dir" value="src"/>
+  <property name="bin.dir" value="bin"/>
+  <property name="lib.dir" value="lib"/>
+  <property name="dist.dir" value="dist"/>
+  <property name="conf.dir" value="conf"/>
+  
+  <path id="class.path">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+  
+  <target name="init">
+    <mkdir dir="${bin.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+  
+  <target name="compile" depends="init">
+    <javac srcdir="${src.dir}" destdir="${bin.dir}"
+           classpathref="class.path"/>
+  </target>
+  
+  <target name="package" depends="compile">
+    <zip destfile="${dist.dir}/rackspacecloudfiles-cli.jar">
+      <zipfileset dir="${bin.dir}"/>
+      <zipfileset src="${lib.dir}/commons-cli-1.1.jar"/>
+      <zipfileset src="${lib.dir}/commons-io-1.4.jar"/>
+      <zipfileset src="${lib.dir}/log4j-1.2.15.jar"/>
+      <zipfileset src="${lib.dir}/commons-codec-1.3.jar"/>
+      <zipfileset src="${lib.dir}/commons-lang-2.4.jar"/>
+      <zipfileset src="${lib.dir}/xercesImpl-2.8.1.jar"/>
+      <zipfileset src="${lib.dir}/commons-httpclient-3.1.jar"/>
+      <zipfileset src="${lib.dir}/commons-logging-1.1.1.jar"/>
+      <zipfileset src="${lib.dir}/java-cloudfiles-1.5.jar"/>
+    </zip>
+  </target>
+  
+  <target name="clean">
+    <delete dir="${dist.dir}"/>
+    <delete dir="${bin.dir}"/>
+  </target>
+</project>
