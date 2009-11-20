@@ -44,13 +44,17 @@ public class Main {
         System.out.println("File upload " + fileToUpload + " result: " + result);
     }
 
+    private static void printHelp(){
+        System.err.println("Command-line arguments:");
+        System.err.println("\t1. Username");
+        System.err.println("\t2. API key");
+        System.err.println("\t3. Container [Optional]: if container exists, displays content, else creates Container");
+        System.err.println("\t4. File [Optional]: Uploads the specified file (if file exists in cloud, overwrites it!)");
+    }
+
     public static void main(String[] args) throws Exception{
         if(args.length < 2){
-            System.err.println("Command-line arguments:");
-            System.err.println("\t1. Username");
-            System.err.println("\t2. API key");
-            System.err.println("\t3. Container [Optional]: if container exists, displays content, else creates Container");
-            System.err.println("\t4. File [Optional]: Uploads the specified file (if file exists in cloud, overwrites it!)");
+            printHelp();
             System.exit(1);
         }
 
@@ -70,6 +74,10 @@ public class Main {
             case 4:
                 uploadFileToContainer(client, args[2] , new File(args[3]));
                 break;
+            default:
+                System.err.println("Wrong number of parameters given!");
+                printHelp();
+                System.exit(2);
         }
 
     }
