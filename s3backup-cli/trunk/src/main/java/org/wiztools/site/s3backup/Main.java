@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.wiztools.site.s3backup;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
@@ -82,7 +79,7 @@ public class Main {
         hf.printHelp(cmdLine, descriptor, options, moreHelp);
     }
     
-    public static void main(String[] arg){
+    public static void main(String[] arg) {
         Options options = generateOptions();
         try{
             CommandLineParser parser = new GnuParser();
@@ -110,9 +107,17 @@ public class Main {
                 ex.printStackTrace();
                 System.exit(-1);
             }
-            catch(FileNotFoundException ex){
+            catch(NoSuchAlgorithmException ex){
                 ex.printStackTrace();
                 System.exit(-2);
+            }
+            catch(FileNotFoundException ex){
+                ex.printStackTrace();
+                System.exit(-3);
+            }
+            catch(IOException ex){
+                ex.printStackTrace();
+                System.exit(-4);
             }
         }
         catch(ParseException ex){

@@ -22,14 +22,9 @@ $ mvn assembly:assembly -DdescriptorId=jar-with-dependencies
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
             <groupId>net.java.dev.jets3t</groupId>
             <artifactId>jets3t</artifactId>
-            <version>0.5.0</version>
+            <version>0.7.1</version>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
