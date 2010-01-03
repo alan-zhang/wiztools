@@ -24,6 +24,7 @@
   <target name="package" depends="compile">
     <zip destfile="${dist.dir}/rackspacecloudfiles-cli.jar">
       <zipfileset dir="${bin.dir}"/>
+      <zipfileset src="${lib.dir}/java-cloudfiles-1.5.jar"/>
       <zipfileset src="${lib.dir}/commons-cli-1.1.jar"/>
       <zipfileset src="${lib.dir}/commons-io-1.4.jar"/>
       <zipfileset src="${lib.dir}/log4j-1.2.15.jar"/>
@@ -32,7 +33,6 @@
       <zipfileset src="${lib.dir}/xercesImpl-2.8.1.jar"/>
       <zipfileset src="${lib.dir}/commons-httpclient-3.1.jar"/>
       <zipfileset src="${lib.dir}/commons-logging-1.1.1.jar"/>
-      <zipfileset src="${lib.dir}/java-cloudfiles-1.5.jar"/>
       <zipfileset dir="${conf.dir}"/>
     </zip>
   </target>
