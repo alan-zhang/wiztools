@@ -1,16 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wiztools.util</groupId>
     <artifactId>uuidgen</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>uuidgen</name>
     <url>http://wiztools.googlecode.com/</url>
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/uuidgen/trunk/</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/uuidgen/trunk/</developerConnection>
-        <url>http://code.google.com/p/wiztools/source/browse/</url>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/uuidgen/tags/uuidgen-1.0</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/uuidgen/tags/uuidgen-1.0</developerConnection>
+        <url>scm:svn:https://wiztools.googlecode.com/svn/uuidgen/tags/uuidgen-1.0</url>
     </scm>
     <build>
         <plugins>
