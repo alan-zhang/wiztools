@@ -3,13 +3,13 @@
     <groupId>org.wiztools.util</groupId>
     <artifactId>uuidgen</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <name>uuidgen</name>
     <url>http://wiztools.googlecode.com/</url>
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/uuidgen/tags/uuidgen-1.0</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/uuidgen/tags/uuidgen-1.0</developerConnection>
-        <url>scm:svn:https://wiztools.googlecode.com/svn/uuidgen/tags/uuidgen-1.0</url>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/uuidgen/trunk/</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/uuidgen/trunk/</developerConnection>
+        <url>http://code.google.com/p/wiztools/source/browse/</url>
     </scm>
     <build>
         <plugins>
