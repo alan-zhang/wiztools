@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class Main {
 
     final private static Pattern DATE_ARITHMETIC_PATTERN = Pattern.compile(
-            "(\\d{4})-(\\d{2})-(\\d{2})\\s+(\\+|-)\\s+(\\d+)(d|m|y)");
+            "\\s*(\\d{4})-(\\d{2})-(\\d{2})\\s+(\\+|-)\\s+(\\d+)(d|m|y)\\s*");
     final private static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     public static void main(String[] arg){
@@ -25,7 +25,7 @@ public class Main {
         System.out.println("\ty: Years");
         System.out.println("Example:");
         System.out.println("\t1979-02-15 + 31y");
-        System.out.println("Give EOF or press ^+C to quit.");
+        System.out.println("Give EOF character or press ^+C to quit.");
         while(true){
             final String input = System.console().readLine();
             if(input == null){
