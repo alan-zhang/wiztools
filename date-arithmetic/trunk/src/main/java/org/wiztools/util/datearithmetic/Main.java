@@ -16,8 +16,8 @@ public class Main {
     final private static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     public static void main(String[] arg){
-        System.out.println("In the commandline input the arithmetic in this format:");
-        System.out.println("\tyyyy-mm-dd <operator> <units>");
+        System.out.println("In the standard-input give the arithmetic in this format:");
+        System.out.println("\tyyyy-mm-dd <operator> <number><units>");
         System.out.println("Operators are: +, -");
         System.out.println("Units:");
         System.out.println("\td: Days");
@@ -62,7 +62,7 @@ public class Main {
 
                 c.add(calOperation, number);
 
-                System.out.println(DATE_FORMAT.format(c.getTime()));
+                System.out.println( ">> " + DATE_FORMAT.format(c.getTime()));
             }
             else{
                 System.err.println("Wrong pattern.");
