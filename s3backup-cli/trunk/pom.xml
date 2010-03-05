@@ -3,13 +3,13 @@
     <groupId>org.wiztools.site.s3backup</groupId>
     <artifactId>s3backup</artifactId>
     <packaging>jar</packaging>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <name>s3backup-cli</name>
     <url>http://wiztools.googlecode.com/</url>
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/s3backup-cli/tags/s3backup-1.1</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/s3backup-cli/tags/s3backup-1.1</developerConnection>
-        <url>scm:svn:https://wiztools.googlecode.com/svn/s3backup-cli/tags/s3backup-1.1</url>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/s3backup-cli/trunk/</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/s3backup-cli/trunk/</developerConnection>
+        <url>http://code.google.com/p/wiztools/source/browse/</url>
     </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
