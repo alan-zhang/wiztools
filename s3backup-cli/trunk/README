@@ -17,7 +17,7 @@
 
   To execute:
 
-  $ java -jar s3backup-1.0-jar-with-dependencies.jar
+  $ java -jar s3backup-1.2-jar-with-dependencies.jar
 
 * License
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## Configuration
-S3BACKUP_JAR=/home/schandran/checkout/site/s3backup/target/s3backup-1.0-jar-with-dependencies.jar
+S3BACKUP_JAR=/home/schandran/checkout/site/s3backup/target/s3backup-1.2-jar-with-dependencies.jar
 
 S3ACCESSKEY=XXX
 S3SECRETKET=XXX
