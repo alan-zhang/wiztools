@@ -64,4 +64,20 @@ public class MyRequest {
         this.queryString = queryString;
     }
 
+    @Override
+    public String toString() {
+        return "["
+                + method
+                + "; "
+                + pathInfo
+                + "; "
+                + queryString
+                + "; "
+                + headers
+                + "; "
+                + parameters
+                + "]";
+    }
+
+
 }

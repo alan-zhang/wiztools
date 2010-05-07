@@ -12,6 +12,7 @@ MyRequest myRequest = (MyRequest)application.getAttribute("myRequest");
         <title>WizTools.org: Snoop Last Request</title>
     </head>
     <body>
+        <p align="center"><a href="clear.html">Clear</a></p>
         <h3>Last Request Snoop:</h3>
 
         <table border="1">

@@ -16,10 +16,15 @@ public class RequestStoreServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().setAttribute("myRequest", Util.getRequest(req));
+        final MyRequest myRequest = Util.getRequest(req);
+        getServletContext().setAttribute("myRequest", myRequest);
+
+        System.out.println();
+        System.out.println(myRequest);
+        System.out.println();
 
         resp.setContentType("text/html");
-        req.getRequestDispatcher("/WEB-INF/jsp/index.jsp").include(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/stored.jsp").include(req, resp);
     }
     
 }
