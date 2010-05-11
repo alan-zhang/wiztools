@@ -1,6 +1,7 @@
 package org.wiztools.snooplastrequest;
 
 import java.util.Collection;
+import java.util.Date;
 import org.wiztools.commons.MultiValueMap;
 
 /**
@@ -8,6 +9,8 @@ import org.wiztools.commons.MultiValueMap;
  * @author subwiz
  */
 public class MyRequest {
+    private final Date timeStamp;
+
     private String method;
     private String pathInfo;
     private String queryString;
@@ -15,6 +18,14 @@ public class MyRequest {
 
     private MultiValueMap<String, String> headers;
     private MultiValueMap<String, String> parameters;
+
+    public MyRequest(){
+        timeStamp = new Date();
+    }
+
+    public Date getTimeStamp() {
+        return this.timeStamp;
+    }
 
     public String getBody() {
         return body;
