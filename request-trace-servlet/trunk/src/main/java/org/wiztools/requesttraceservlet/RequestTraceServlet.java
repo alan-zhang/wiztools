@@ -28,11 +28,12 @@ public class RequestTraceServlet extends HttpServlet {
         out.println("\tLocal Address: " + req.getLocalAddr());
         out.println("\tLocal Name: " + req.getLocalName());
         out.println("\tLocal Port: " + req.getLocalPort());
-        out.println("\tRemote Address: " + req.getRemoteAddr());
-        out.println("\tRemote Host: " + req.getRemoteHost());
         out.println("\tServer Port: " + req.getServerPort());
 
-        out.println("\n===Remote User===");
+        out.println("\n===Remote===");
+        out.println("\tRemote Address: " + req.getRemoteAddr());
+        out.println("\tRemote Host: " + req.getRemoteHost());
+        out.println("\tRemote Port: " + req.getRemotePort());
         out.println("\tRemote User: " + req.getRemoteUser());
         out.println("\tRequested SessionId: " + req.getRequestedSessionId());
 
