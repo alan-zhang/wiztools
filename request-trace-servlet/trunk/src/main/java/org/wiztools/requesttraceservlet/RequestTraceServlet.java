@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,18 @@ public class RequestTraceServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.println("==Request TraceServlet==");
 
+        out.println("\n====Server Info===");
+        out.println("\tLocal Address: " + req.getLocalAddr());
+        out.println("\tLocal Name: " + req.getLocalName());
+        out.println("\tLocal Port: " + req.getLocalPort());
+        out.println("\tRemote Address: " + req.getRemoteAddr());
+        out.println("\tRemote Host: " + req.getRemoteHost());
+        out.println("\tServer Port: " + req.getServerPort());
+
+        out.println("\n===Remote User===");
+        out.println("\tRemote User: " + req.getRemoteUser());
+        out.println("\tRequested SessionId: " + req.getRequestedSessionId());
+
         out.println("\n===Method===");
         out.println("\t" + req.getMethod());
 
@@ -35,6 +48,20 @@ public class RequestTraceServlet extends HttpServlet {
                 String headerValue = (String) eValues.nextElement();
                 headerValue = headerValue.replaceAll("\n", "\n\t");
                 out.println("\t" + headerName + ": " + headerValue);
+            }
+        }
+        
+        if(req.getCookies() != null) {
+            out.println("\n===Cookies===");
+            for(Cookie cookie: req.getCookies()) {
+                out.println("\t" + cookie.getName());
+                out.println("\t\tComment: " + cookie.getComment());
+                out.println("\t\tDomain: " + cookie.getDomain());
+                out.println("\t\tPath: " + cookie.getPath());
+                out.println("\t\tMax-age: " + cookie.getMaxAge());
+                out.println("\t\tSecure: " + cookie.getSecure());
+                out.println("\t\tVersion: " + cookie.getVersion());
+                out.println("\t\tValue: " + cookie.getValue());
             }
         }
         
@@ -79,5 +106,4 @@ public class RequestTraceServlet extends HttpServlet {
         out.flush();
         out.close();
     }
-
 }
