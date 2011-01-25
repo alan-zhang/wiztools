@@ -24,7 +24,7 @@ public class RequestTraceServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.println("==Request TraceServlet==");
 
-        out.println("\n====Server Info===");
+        out.println("\n===Server Info===");
         out.println("\tLocal Address: " + req.getLocalAddr());
         out.println("\tLocal Name: " + req.getLocalName());
         out.println("\tLocal Port: " + req.getLocalPort());
