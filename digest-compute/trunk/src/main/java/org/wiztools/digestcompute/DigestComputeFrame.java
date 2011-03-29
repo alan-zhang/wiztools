@@ -378,6 +378,9 @@ public class DigestComputeFrame extends JFrame {
     }
 
     private void saveDigest(final String digest, final String extension) {
+        if(digest.trim().equals("") || jtf_file.getText().trim().equals("")) {
+            return;
+        }
         File selectedFile = new File(jtf_file.getText());
         jfcSave.setSelectedFile(new File(selectedFile.getParentFile(),
                 selectedFile.getName() + "." + extension));
