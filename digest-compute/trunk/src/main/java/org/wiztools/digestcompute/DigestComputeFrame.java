@@ -289,6 +289,16 @@ public class DigestComputeFrame extends JFrame {
             });
             jmFile.add(jmiOpen);
 
+            JMenuItem jmiClear = new JMenuItem("Clear Result");
+            jmiClear.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
+            jmiClear.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    clearResult();
+                }
+            });
+            jmFile.add(jmiClear);
+
             JMenuItem jmiExit = new JMenuItem("Exit");
             jmiExit.setMnemonic('x');
             jmiExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
@@ -404,6 +414,12 @@ public class DigestComputeFrame extends JFrame {
                         "Error writing", JOptionPane.ERROR_MESSAGE);
             }
         }
+    }
+
+    private void clearResult() {
+        jtf_md5.setText("");
+        jtf_sha1.setText("");
+        jtf_sha256.setText("");
     }
 
     private void showAbout() {
