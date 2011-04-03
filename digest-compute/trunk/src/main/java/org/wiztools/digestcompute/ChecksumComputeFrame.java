@@ -423,6 +423,9 @@ public class ChecksumComputeFrame extends JFrame {
     }
 
     private void showAbout() {
-        JOptionPane.showMessageDialog(this, "<html>&copy; WizTools.org<br>Apache 2.0 Licensed</html>");
+        JOptionPane.showMessageDialog(this,
+                "<html>&copy; WizTools.org<br>Apache 2.0 Licensed</html>",
+                "About",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }
