@@ -11,12 +11,12 @@ import org.wiztools.commons.HexEncodeUtil;
  *
  * @author subhash
  */
-class DigestCompute implements Result {
+class ChecksumCompute implements Result {
     private MessageDigest md5;
     private MessageDigest sha1;
     private MessageDigest sha256;
 
-    DigestCompute() {
+    ChecksumCompute() {
         try{
             md5 = MessageDigest.getInstance(DigestAlgorithm.MD5);
             sha1 = MessageDigest.getInstance(DigestAlgorithm.SHA_1);
@@ -28,7 +28,7 @@ class DigestCompute implements Result {
         }
         catch(NoSuchAlgorithmException ex) {
             assert true: "Should never come here!";
-            Logger.getLogger(DigestCompute.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ChecksumCompute.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

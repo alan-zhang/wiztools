@@ -40,8 +40,8 @@ import org.wiztools.commons.FileUtil;
  *
  * @author subhash
  */
-public class DigestComputeFrame extends JFrame {
-    private static final Logger logger = Logger.getLogger(DigestComputeFrame.class.getName());
+public class ChecksumComputeFrame extends JFrame {
+    private static final Logger logger = Logger.getLogger(ChecksumComputeFrame.class.getName());
 
     private static final String EXT_MD5 = "md5";
     private static final String EXT_SHA1 = "sha1";
@@ -130,8 +130,8 @@ public class DigestComputeFrame extends JFrame {
 
     private Compute compute;
 
-    public DigestComputeFrame() {
-        super("WizTools.org Digest Compute");
+    public ChecksumComputeFrame() {
+        super("WizTools.org Checksum Compute");
 
         init();
         initMenuBar();
@@ -144,9 +144,9 @@ public class DigestComputeFrame extends JFrame {
 
             jp.add(jtf_file, BorderLayout.CENTER);
 
-            JPanel jp_east = new JPanel(new FlowLayout());
-            jp_east.add(jb_browse);
-            jp_east.add(jb_go);
+            JPanel jp_east = new JPanel(new BorderLayout());
+            jp_east.add(jb_browse, BorderLayout.CENTER);
+            jp_east.add(jb_go, BorderLayout.EAST);
 
             jp.add(jp_east, BorderLayout.EAST);
 

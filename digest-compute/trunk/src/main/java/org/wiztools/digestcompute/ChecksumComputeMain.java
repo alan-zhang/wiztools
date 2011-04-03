@@ -10,7 +10,7 @@ import javax.swing.UIManager;
  *
  * @author subhash
  */
-public class DigestComputeMain {
+public class ChecksumComputeMain {
     public static void main(String[] arg) {
         Font f = new Font(Font.DIALOG, Font.PLAIN, 12);
         ArrayList excludes = new ArrayList();
@@ -27,7 +27,7 @@ public class DigestComputeMain {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new DigestComputeFrame();
+                new ChecksumComputeFrame();
             }
         });
     }

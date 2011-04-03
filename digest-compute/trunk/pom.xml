@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wiztools</groupId>
-    <artifactId>digest-compute</artifactId>
+    <artifactId>checksum-compute</artifactId>
     <packaging>jar</packaging>
     <version>0.2.0-SNAPSHOT</version>
-    <name>digest-compute</name>
+    <name>checksum-compute</name>
     <url>http://wiztools.googlecode.com</url>
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/digest-compute/trunk/</connection>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/checksum-compute/trunk/</connection>
         <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/digest-compute/trunk/</developerConnection>
         <url>http://code.google.com/p/wiztools/source/browse/</url>
     </scm>
@@ -31,7 +31,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.wiztools.digestcompute.DigestComputeMain</mainClass>
+                            <mainClass>org.wiztools.digestcompute.ChecksumComputeMain</mainClass>
                         </manifest>
                         <manifestEntries>
                             <mode>development</mode>
@@ -53,7 +53,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
-                    <tagBase>https://wiztools.googlecode.com/svn/digest-compute/tags</tagBase>
+                    <tagBase>https://wiztools.googlecode.com/svn/checksum-compute/tags</tagBase>
                 </configuration>
             </plugin>
         </plugins>

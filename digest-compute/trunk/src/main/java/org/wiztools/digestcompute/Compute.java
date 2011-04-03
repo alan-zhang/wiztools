@@ -24,7 +24,7 @@ class Compute {
         try{
             fis = new FileInputStream(f);
 
-            DigestCompute md = new DigestCompute();
+            ChecksumCompute md = new ChecksumCompute();
 
             byte[] buf = new byte[1024*8];
             int len = -1;
