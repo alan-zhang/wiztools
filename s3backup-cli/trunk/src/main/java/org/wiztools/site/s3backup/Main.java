@@ -73,9 +73,9 @@ public class Main {
     
     private static void printCommandLineHelp(Options options){
         HelpFormatter hf = new HelpFormatter();
-        String cmdLine = "java -jar s3-version.jar [options]";
-        String descriptor = "s3 backup tool";
-        String moreHelp = "http://wiztools.org/";
+        String cmdLine = "java -jar s3backup-NN-jar-with-dependencies.jar [options]";
+        String descriptor = "AWS S3 backup tool";
+        String moreHelp = "http://wiztools.googlecode.com/";
         hf.printHelp(cmdLine, descriptor, options, moreHelp);
     }
     
