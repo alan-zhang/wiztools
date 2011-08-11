@@ -1,7 +1,6 @@
-* S3 Backup
+* S3 Upload Cli
 
-  This is a commandline backup tool to upload single
-  file to Amazon's S3 service.
+  This is a commandline tool to upload files to Amazon's S3 service.
 
 * Source Code
 
@@ -9,7 +8,7 @@
 
 * Building
 
-  Maven 2.x or above is needed for building S3Backup. To build:
+  Maven 2.x or above is needed for building S3Upload-cli. To build:
 
   $ mvn package
 
@@ -17,7 +16,7 @@
 
   To execute:
 
-  $ java -jar s3backup-NN-jar-with-dependencies.jar
+  $ java -jar s3upload-cli-NN-jar-with-dependencies.jar
 
   Where `NN' is the version number.
 
