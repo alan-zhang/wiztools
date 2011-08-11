@@ -1,9 +1,11 @@
 package org.wiztools.site.s3backup;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Properties;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
@@ -28,11 +30,17 @@ public class Main {
     private static Options generateOptions(){
         Options options = new Options();
         
-        // access key
+        // AWS credentials
         Option option = OptionBuilder
+                .withLongOpt("aws-creds-file")
+                .hasArg()
+                .create('k');
+        options.addOption(option);
+        
+        // access key
+        option = OptionBuilder
                 .withLongOpt("accesskey")
                 .hasArg()
-                .isRequired()
                 .create('a');
         options.addOption(option);
         
@@ -40,7 +48,6 @@ public class Main {
         option = OptionBuilder
                 .withLongOpt("secretkey")
                 .hasArg()
-                .isRequired()
                 .create('s');
         options.addOption(option);
         
@@ -75,7 +82,9 @@ public class Main {
         HelpFormatter hf = new HelpFormatter();
         String cmdLine = "java -jar s3backup-NN-jar-with-dependencies.jar [options]";
         String descriptor = "AWS S3 backup tool";
-        String moreHelp = "http://wiztools.googlecode.com/";
+        String moreHelp = "Format of `aws-creds-file': \n"
+                + "\tAWSAccessKeyId=XXX\n"
+                + "\tAWSSecretKey=XXX";
         hf.printHelp(cmdLine, descriptor, options, moreHelp);
     }
     
@@ -89,11 +98,39 @@ public class Main {
                 printCommandLineHelp(options);
                 return;
             }
-            
+
+            String awsCredsFile = options.getOption("aws-creds-file").getValue();
             String accessKey = options.getOption("accesskey").getValue();
             String secretKey = options.getOption("secretkey").getValue();
             String bucketName = options.getOption("bucket").getValue();
             String fileName = options.getOption("file").getValue();
+            
+            if(awsCredsFile == null && (accessKey == null || secretKey == null)) {
+                System.err.println("Either -k or (-a and -s) options are mandatory.");
+                printCommandLineHelp(options);
+                System.exit(1);
+            }
+            
+            if(awsCredsFile != null && (accessKey != null && secretKey != null)) {
+                System.err.println("Options -k and (-a and -s) cannot coexist.");
+                printCommandLineHelp(options);
+                System.exit(2);
+            }
+            
+            if(awsCredsFile != null) {
+                Properties p = new Properties();
+                try {
+                    p.load(new FileInputStream(new File(awsCredsFile)));
+                    
+                    accessKey = p.getProperty("AWSAccessKeyId");
+                    secretKey = p.getProperty("AWSSecretKey");
+                }
+                catch(IOException ex) {
+                    System.err.println("Cannot read AWS property file.");
+                    ex.printStackTrace(System.err);
+                    System.exit(3);
+                }
+            }
             
             AWSCredentials cred = new AWSCredentials(accessKey, secretKey);
             try{
@@ -104,25 +141,25 @@ public class Main {
                 service.putObject(bucket, object);
             }
             catch(S3ServiceException ex){
-                ex.printStackTrace();
-                System.exit(-1);
+                ex.printStackTrace(System.err);
+                System.exit(4);
             }
             catch(NoSuchAlgorithmException ex){
-                ex.printStackTrace();
-                System.exit(-2);
+                ex.printStackTrace(System.err);
+                System.exit(5);
             }
             catch(FileNotFoundException ex){
-                ex.printStackTrace();
-                System.exit(-3);
+                ex.printStackTrace(System.err);
+                System.exit(6);
             }
             catch(IOException ex){
-                ex.printStackTrace();
-                System.exit(-4);
+                ex.printStackTrace(System.err);
+                System.exit(7);
             }
         }
         catch(ParseException ex){
             printCommandLineHelp(options);
-            System.exit(-3);
+            System.exit(8);
         }
     }
 }
