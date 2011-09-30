@@ -9,6 +9,6 @@ This tutorial is explained in this screenshot:
 
 There are two command-prompts. In one command-prompt we have the Multicast Tool running in _listen_ mode, and in the other in _send_ mode.
 
-We are executing two commands in the _send_ command-prompt: one by entering the input in the command-prompt, and the other by sending the contents of a file to the application. Both the contents are received by _listen_ mode of the application running in the background command-prompt.
+We are executing two commands in the _send_ command-prompt: one by entering the input in the command-prompt, and the other by sending the contents of a file to the application. Both the contents are received by _listen_ application running in the background command-prompt.
 
-Then in the _listen_ mode prompt, we give the command _bye_ to quit that version.
+Then in the _listen_ mode prompt, we give the command _bye_ to quit that version. You may also enter EOF character or other commands like _quit_, _exit_, _close_, _terminate_, _shutdown_, _hasta la vista_, _vanakkam_, _danyavada_ and _danyavaad_.
