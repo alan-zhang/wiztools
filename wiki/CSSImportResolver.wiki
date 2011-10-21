@@ -9,7 +9,7 @@ In CSS you can refer to other CSS files thus:
 @import url(path/to/included.css);
 }}}
 
-Such reference makes the code easy to read and maintain, but on the performance side it takes a hit---because the browser needs to make multiple HTTP requests to render this page (more detail, [http://www.stevesouders.com/blog/2009/04/09/dont-use-import/ see this]).
+Such reference makes the code easy to read and maintain, but on the performance side it takes a hit---because the browser needs to make multiple HTTP requests to render this page ([http://www.stevesouders.com/blog/2009/04/09/dont-use-import/ more detail]).
 
 This tool reads such CSS files and includes the content of the @import'ed file in the main CSS.
 
