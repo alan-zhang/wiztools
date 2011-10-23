@@ -26,4 +26,4 @@ $ java -jar css-import-resolver-NN-jar-with-dependencies.jar -h
 == Limitations ==
 
   * The parsing is done using RegularExpression, so when @import statements are encountered inside CSS comments, they are also expanded.
-  * The import resolve happens only for the top CSS, it does not happen recursively.
+  * HTTP urls are not processed.
