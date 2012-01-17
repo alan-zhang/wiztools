@@ -9,7 +9,13 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>country-state</name>
-    <url>http://maven.apache.org</url>
+    <url>http://wiztools.org</url>
+    
+    <scm>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/country-state/trunk/</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/country-state/trunk/</developerConnection>
+        <url>http://code.google.com/p/wiztools/source/browse/</url>
+    </scm>
 
     <dependencies>
         <dependency>
@@ -57,6 +63,13 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <tagBase>https://wiztools.googlecode.com/svn/country-state/tags</tagBase>
                 </configuration>
             </plugin>
         </plugins>
