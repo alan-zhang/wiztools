@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author subwiz
  */
-@XmlRootElement
+@XmlRootElement(name="countries")
 public class CountryBean extends PlaceBean {
     @XmlTransient
     private final List<StateBean> states = new ArrayList<StateBean>();
