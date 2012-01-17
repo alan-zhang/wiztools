@@ -2,8 +2,6 @@ package org.wiztools.countrystate;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
@@ -41,11 +39,9 @@ public class RSCountryState {
                 ? data.getCountryByName(nameCode)
                 : data.getCountryByCode(nameCode);
         if(country == null) {
-            Logger.getLogger(RSCountryState.class.getName()).log(Level.WARNING,
-                    "Not available for country: {0}", countryNameCode);
             throw new WebApplicationException(
                     Response.status(Response.Status.NOT_FOUND)
-                        .entity("No country found!")
+                        .entity("No country found: " + countryNameCode)
                         .build());
         }
         
@@ -55,7 +51,8 @@ public class RSCountryState {
             throw new WebApplicationException(
                     Response
                         .status(Response.Status.NOT_FOUND)
-                        .entity("No state available for country!")
+                        .entity("No state information available for country: "
+                            + countryNameCode)
                         .build());
         }
         return states;
