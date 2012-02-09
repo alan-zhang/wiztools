@@ -18,15 +18,12 @@ public class LdapAuthValidatorMain {
     
     private static void printHelp(PrintStream out) {
         out.println("Usage: java -jar ldap-password-validator-NN-jar-with-dependencies.jar \\");
-        out.println("\t-c /path/to/config.properties [user-cn]");
+        out.println("\t-u <ldap://host:port/base.dn> [user-cn]");
         out.println();
-        out.println("Content of sample config.properties:");
-        out.println("\tldap.url = ldap://localhost:1389/");
-        out.println("\tbase.dn = dc=wiztools,dc=org");
     }
     
     public static void main(String[] arg) throws IOException {
-        OptionParser parser = new OptionParser("hc:");
+        OptionParser parser = new OptionParser("hu:");
         try {
             OptionSet options = parser.parse(arg);
             
@@ -35,8 +32,8 @@ public class LdapAuthValidatorMain {
                 System.exit(0);
             }
             
-            if(!options.has("c")) {
-                System.err.println("Mandatory parameter -c missing.");
+            if(!options.has("u")) {
+                System.err.println("Mandatory parameter -u missing.");
                 printHelp(System.err);
                 System.exit(1);
             }
@@ -47,25 +44,7 @@ public class LdapAuthValidatorMain {
                 System.exit(1);
             }
             
-            final String configFilePath = options.valueOf("c").toString();
-            final File configFile = new File(configFilePath);
-            if(!configFile.canRead()) {
-                System.err.println("Cannot read config file.");
-                printHelp(System.err);
-                System.exit(1);
-            }
-            
-            Properties props = new Properties();
-            props.load(new FileInputStream(configFile));
-            
-            final String ldapUrl = props.getProperty("ldap.url");
-            final String baseDN = props.getProperty("base.dn");
-            
-            if(ldapUrl == null || baseDN == null) {
-                System.err.println("Required property not available in conf file.");
-                printHelp(System.err);
-                System.exit(1);
-            }
+            final String ldapUrl = options.valueOf("u").toString();
             
             // Collect user:
             final String userCN;
@@ -84,7 +63,7 @@ public class LdapAuthValidatorMain {
             // Now, execute:
             RequestBean request = new RequestBean();
             request.setLdapUrl(ldapUrl);
-            request.setBaseDN(baseDN);
+            // request.setBaseDN(baseDN);
             request.setUserCN(userCN);
             request.setPassword(new String(password));
             try {
