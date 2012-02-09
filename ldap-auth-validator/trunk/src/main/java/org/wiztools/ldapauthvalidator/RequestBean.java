@@ -23,7 +23,8 @@ public class RequestBean {
         if(!ldapUrl.endsWith("/")) {
             sb.append("/");
         }
-        sb.append(baseDN);
+        if(baseDN != null) sb.append(baseDN);
+        
         return sb.toString();
     }
 
